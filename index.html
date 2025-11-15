@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>🚀 To-Do List</h2>
+
+    <div class="input-group">
+      <input type="text" id="taskInput" placeholder="Enter a task...">
+      <textarea id="taskNotes" placeholder="Add notes or description..."></textarea>
+      <input type="date" id="taskDate">
+      <select id="taskPriority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <select id="taskRepeat">
+        <option value="none">No Repeat</option>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+      <button id="addBtn">Add Task</button>
+      <button id="themeToggle">🌙 / ☀️</button>
+    </div>
+
+    <div class="filter-group">
+      <button onclick="filterTasks('all')">All</button>
+      <button onclick="filterTasks('completed')">Completed</button>
+      <button onclick="filterTasks('active')">Active</button>
+      <button onclick="sortTasks('priority')">Sort by Priority</button>
+      <button onclick="sortTasks('date')">Sort by Date</button>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Search tasks..." oninput="searchTasks()">
+
+    <ul id="taskList"></ul>
+
+    <div class="dashboard">
+      <h3>Progress Dashboard</h3>
+      <canvas id="taskChart" width="400" height="200"></canvas>
+      <p id="streakDisplay">🔥 Current Completion Streak: 0 days</p>
+    </div>
+
+    <button id="exportBtn">Export Tasks as PDF</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
